@@ -1,4 +1,11 @@
 // Assignment code here
+  
+  //generatePassword() function
+
+    //get parameters from user
+
+    //randomize according to user input parameters
+
 
 
 // Get references to the #generate element
