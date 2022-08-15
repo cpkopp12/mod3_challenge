@@ -24,11 +24,31 @@
     }
     return charInput;
  }
-  
-//test
+
+ var randInt = function(mn,mx) {
+  var value = Math.floor(Math.random() * (mx-mn+1)) + mn;
+
+  return value;
+};
+
 
 function generatePassword() {
-
+  //Define arrays of characters
+  const lowerCases = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  const upperCases = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+        'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+        'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  const numChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const specChars = ['!', '@', '#', '$', '%', '^', '&', '*'];
+  
+  //concat() joins arrays without changing original arrays
+  //push() adds string to the end of an array
+  //array.join("") will form one string out of the elements of array without any seperation
+  
+  
+  //Get User Input
   var userInput = {
     //numChar is just one number
     numChar : getNumChar(),
@@ -36,25 +56,27 @@ function generatePassword() {
     //for each character type
     charChoices : getCharChoices()
   }
-  console.log(userInput.numChar);
-  console.log(userInput.charChoices)
-    
-    //get parameters from user
-    //var length = window.prompt("Enter password length (integer [8-128])");
-    //var lowerCaseChar = window.confirm("Would you like to include lowercase characters? (Must select OK for atleast one of the four character types)");
-    //var upperCaseChar = window.confirm("Would you like to include uppercase characters? (Must select OK for atleast one of the four character types)");
-    //var numericChar = window.confirm("Would you like to include numeric characters? (Must select OK for atleast one of the four character types)");
-    //var specialChar = window.confirm("Would you like to include numeric characters? (Must select OK for atleast one of the four character types)");
-    
-    //console.log(length);
-    //console.log(lowerCaseChar);
-    //console.log(upperCaseChar);
-    //console.log(numericChar);
-    //console.log(specialChar);
-    //randomize according to user input parameters
 
-
+  //Set up array to choose randomly from
+  var userChars = [];
+  
+  if (userInput.charChoices.lowerCaseChar) {
+    userChars = userChars.concat(lowerCases);
   }
+  if (userInput.charChoices.upperCaseChar) {
+    userChars = userChars.concat(upperCases);
+  }
+  if (userInput.charChoices.numericChar) {
+    userChars = userChars.concat(numChars);
+  }
+  if (userInput.charChoices.specialChar) {
+    userChars = userChars.concat(specChars);
+  }
+  
+  
+
+
+}
 
 
 
