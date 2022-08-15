@@ -5,7 +5,7 @@
       window.alert("You need to enter an integer greater than or equal to 8 and less than or equal to 128! Try again.");
       lenInput = window.prompt("Enter password length (integer [8-128])");
     }
-    return lenInput;
+    return Number(lenInput);
  } 
 
  var getCharChoices = function() {
@@ -72,7 +72,17 @@ function generatePassword() {
   if (userInput.charChoices.specialChar) {
     userChars = userChars.concat(specChars);
   }
-  
+
+
+  //for loop to create randomly selected password elements
+  var passwordArray = [];
+  for (let i = 0; i < userInput.numChar; i++) {
+    var randIndex = randInt(0,userChars.length - 1);
+    passwordArray.push(userChars[randIndex]);
+  }
+  var password = passwordArray.join("");
+
+  return password;
   
 
 
